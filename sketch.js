@@ -2,8 +2,8 @@ let boxes = [];
 let iteration = 0;
 
 function setup() {
-  createCanvas(400, 400, WEBGL);
-  boxes.push(new Box(0, 0, 0, 90));
+  createCanvas(600, 600, WEBGL);
+  boxes.push(new Box(0, 0, 0, 150));
   camera(-250, -150, 200);
 }
 
