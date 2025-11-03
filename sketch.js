@@ -1,7 +1,28 @@
+let boxes = [];
+let iteration = 0;
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 400, WEBGL);
+  boxes.push(new Box(0, 0, 0, 90));
+  camera(-250, -150, 200);
 }
 
 function draw() {
-  background(0);
+  background(132, 194, 157);
+  orbitControl();
+
+  if (iteration < 2) {
+    let newBoxes = [];
+    boxes.forEach((b) => {
+      newBoxes = newBoxes.concat(b.generate());
+    });
+    boxes = [];
+    boxes = boxes.concat(newBoxes);
+
+    iteration++;
+  }
+
+  boxes.forEach((b) => {
+    b.show();
+  });
 }
